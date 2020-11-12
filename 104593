@@ -1,0 +1,68 @@
+#imports
+from instabot import Bot
+from time import sleep
+
+#Follow Func
+def follow(bot , admin) :
+	bot.follow_followers(admin)
+
+
+
+
+#Like Func
+def like(bot , admin) :
+	bot.like_followers(admin , nlikes=3)
+
+def main():
+	#Informations
+	admin="farzin.0101"
+	usname="MrAliBayrami"
+	passw="MrGeek2020"
+	
+	#Bot Settings
+	bot = Bot(
+	filter_users=False,
+    filter_private_users=False,
+    filter_previously_followed=False,
+    filter_business_accounts=False,
+    filter_verified_accounts=True,
+    max_followers_to_follow="99999999999",
+    min_followers_to_follow="0",
+    max_following_to_follow="99999999999",
+    min_following_to_follow="0",
+    max_likes_to_like=99999999999999999,
+    
+	)
+	
+	#Login
+	bot.login(username=usname, password=passw)
+	
+	#sleep
+	sleep(5)
+	
+	#Follow
+	follow(bot , admin)
+	
+	#sleep
+	sleep(30)
+	
+	#Like
+	like(bot , admin)
+	
+	#sleep
+	sleep(30)
+	
+	#Logout from acc
+	bot.logout
+	
+
+
+
+
+
+
+
+
+
+
+main()
